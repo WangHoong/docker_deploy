@@ -7,9 +7,9 @@ services:
     networks:
       - web
     volumes:
-     - /Users/datadir/nginx/logs:/var/logs/nginx/
+     - /Users/datadir/logs/nginx:/var/logs/nginx/
     links:
-      - "api:api"
+      - api
     ports:
      - "80:80"
     restart: always
@@ -19,45 +19,97 @@ services:
     image: "54.223.52.77:5000/topdmc/cpp_api:1.0.0"
     networks:
       - web
+    depends_on:
+      - mysql
+      - elasticsearch
+      - redis
     links:
-      - "elasticsearch:elasticsearch"
-      - "mysql:mysql"
+      - elasticsearch
+      - mysql
+      - redis
     environment:
-      - RAILS_ENV=production
-      - ELASTICSEARCH_SERVER=elasticsearch:9200
-      - DATABASE_URL=mysql2://root:topdmc/cpp_tool
+      - RAILS_ENV=production # rails env
+      - REDIS_SERVER=redis:6379
+      - ELASTICSEARCH_SERVER=elasticsearch:9200 # elasticsearch address
+      - BOS_AK=b89add7b3d9442d397ec0fff3bd17f6a
+      - BOS_SK=3320129b0b744da89b3cc9d2efda4248
+      - DMC_MEDIA=dmc-media-pro
+      - DMC_RO=dmc-ro-pro
+      - DMC_MEDIA_URL=http://dmc-media-pro.bj.bcebos.com #
+      - DMC_RO_URL=http://dmc-ro-pro.bj.bcebos.com #
+      - DATABASE_URL=mysql2://topdmc:topdmc.qwe.123@mysql:3306/cpp_tool # database url
+      - SECRET_KEY_BASE=d57ab110eff68cd3d18b045e640e15bb098ee8c6556a01adf40bb4068f64d8fa5732c5ab5d694850be3dd0077efd9c3b21b12955ad8b844389641bb43ad2875d
+    volumes:
+      - /Users/datadir/logs/api:/app/log
     ports:
       - "3000:3000"
     restart: always
+  # =================================api==========================================
+  job:
+    container_name: job
+    image: "54.223.52.77:5000/topdmc/cpp_api:1.0.0"
+    networks:
+      - web
+    depends_on:
+      - mysql
+      - elasticsearch
+      - redis
+    links:
+      - elasticsearch
+      - mysql
+      - redis
+    environment:
+      - RAILS_ENV=production # rails env
+      - REDIS_SERVER=redis:6379
+      - ELASTICSEARCH_SERVER=elasticsearch:9200 # elasticsearch address
+      - BOS_AK=b89add7b3d9442d397ec0fff3bd17f6a
+      - BOS_SK=3320129b0b744da89b3cc9d2efda4248
+      - DMC_MEDIA=dmc-media-pro
+      - DMC_RO=dmc-ro-pro
+      - DMC_MEDIA_URL=http://dmc-media-pro.bj.bcebos.com #
+      - DMC_RO_URL=http://dmc-ro-pro.bj.bcebos.com #
+      - DATABASE_URL=mysql2://topdmc:topdmc.qwe.123@mysql:3306/cpp_tool # database url
+      - SECRET_KEY_BASE=d57ab110eff68cd3d18b045e640e15bb098ee8c6556a01adf40bb4068f64d8fa5732c5ab5d694850be3dd0077efd9c3b21b12955ad8b844389641bb43ad2875d
+    volumes:
+      - /Users/datadir/logs/api:/app/log
+    restart: always
+    command: ["bundle","exec","sidekiq","-C","config/sidekiq.yml"]
   # ================================elasticsearch===========================================
   elasticsearch:
     container_name: elasticsearch
-    image: "elasticsearch:5.2.2"
+    image: elasticsearch:5.2.2
     ports:
-      - "9200:9200"
+      - 9200:9200
     networks:
       - web
     volumes:
       - /Users/datadir/elasticsearch:/usr/share/elasticsearch/data
+      - /Users/datadir/logs/elasticsearch:/usr/share/elasticsearch/logs
     restart: always
     # ==============================mysql=============================================
   mysql:
-    container_name: mysql
+    container_name: db
     image: "mysql"
     environment:
-      - MYSQL_ROOT_PASSWORD=topdmc
+      - MYSQL_ROOT_PASSWORD=topdmc.qwe.123
+      - MYSQL_ROOT_HOST=*
+      - MYSQL_USER=topdmc
+      - MYSQL_DATABASE=cpp_tool
+      - MYSQL_PASSWORD=topdmc.qwe.123
     volumes:
       - /Users/datadir/db:/var/lib/mysql
-    build:
-      context: .
-      args:
-        - character-set-server=utf8mb4
-        - collation-server=utf8mb4_unicode_ci
+    command: ["mysqld", "--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
+    networks:
+      - web
     ports:
-      - "3306:3306"
+      - 3306:3306
     restart: always
     # ===========================================================================
-
+  redis:
+    container_name: redis
+    image: redis
+    ports:
+      - 6379:6379
 networks:
   web:
     driver: bridge

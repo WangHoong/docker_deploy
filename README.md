@@ -3,14 +3,15 @@
 ## 创建服务
 
 ```
-docker-compose create
+docker-compose up
 
 ```
 
 ## 移除服务
 
 ```
-docker-compose rm
+docker-compose stop && docker-compose rm
+
 ```
 
 ## 重启服务
