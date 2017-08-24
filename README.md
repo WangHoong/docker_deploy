@@ -15,7 +15,7 @@
 
 Docker 的 安装资源文件 存放在Amazon S3，会间歇性连接失败。所以安装Docker的时候，会比较慢。
 你可以通过执行下面的命令，高速安装Docker。
-```
+``` bash
   curl -sSL https://get.daocloud.io/docker | sh
 
 ```
@@ -24,7 +24,7 @@ Docker 的 安装资源文件 存放在Amazon S3，会间歇性连接失败。�
 Docker Compose 存放在Git Hub，不太稳定。
 你可以也通过执行下面的命令，高速安装Docker Compose。
 
-```
+```bash
 curl -L https://get.daocloud.io/docker/compose/releases/download/1.15.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 
@@ -33,7 +33,7 @@ chmod +x /usr/local/bin/docker-compose
 
 ### 设置docker mirror
 
-```
+```bash
 curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://3fcf853c.m.daocloud.io
 
 ```
@@ -42,7 +42,7 @@ curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://3fcf853c
 ### 设置docker的启动参数
 
 说明：由于目前大家的registry没有使用https,需要设置此项
-```
+```bash
 sudo vim /lib/systemd/system/docker.service
 
 修改文件
@@ -55,7 +55,8 @@ ExecStart=/usr/bin/dockerd -H fd://
 ### 启动cpp 项目
 
 进入本项目所在的目录运行以下脚本，系统会自动拉取cpp项目的image
-```
+```bash
+
 docker-compose up -d
 
 ```
@@ -65,7 +66,7 @@ docker-compose up -d
 
 初始化系统数据，初始化完成后自动重启项目
 
-```
+```bash
 ./init_script.sh
 
 ```
@@ -77,3 +78,13 @@ http://{服务器ip}
 ### 默认管理员账户
 账户: admin@topdmc.com
 密码：123456
+
+说明：系统数据存放目录
+
+/Users/datadir/
+  -elasticsearch 索引存放位置
+  -db 数据库存放位置
+  -logs 日志文件位置
+      -api 接口日志
+      -nginx 前台nginx访问日志
+      -elasticsearch 索引服务器运行日志
