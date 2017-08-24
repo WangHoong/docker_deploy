@@ -5,7 +5,7 @@ function check_mysql {
   # check mysql , if not exists install mysql client
   if ! [ -x "$(command -v mysql)" ]; then
     echo 'Error: mysql is not installed.' >&2
-    sudo apt-get install mysql
+    sudo apt-get install mysql-client
   fi
 }
 
