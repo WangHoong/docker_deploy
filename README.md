@@ -81,10 +81,10 @@ http://{服务器ip}
 
 说明：系统数据存放目录
 
-/Users/datadir/
-  -elasticsearch 索引存放位置
-  -db 数据库存放位置
-  -logs 日志文件位置
-      -api 接口日志
-      -nginx 前台nginx访问日志
-      -elasticsearch 索引服务器运行日志
++ /Users/datadir/
++  -elasticsearch 索引存放位置
++  -db 数据库存放位置
++  -logs 日志文件位置
++      -api 接口日志
++      -nginx 前台nginx访问日志
++      -elasticsearch 索引服务器运行日志
