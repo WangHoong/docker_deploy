@@ -344,7 +344,7 @@ CREATE TABLE `continents` (
   `en_name` varchar(16) DEFAULT NULL COMMENT '英文名',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
-
+ALTER TABLE banks AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for contract_resources
 -- ----------------------------
@@ -896,7 +896,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   KEY `index_users_on_email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
-ALTER TABLE users AUTO_INCREMENT=100000;
+ 
 -- ----------------------------
 -- Table structure for video_resources
 -- ----------------------------
