@@ -30,7 +30,7 @@ CREATE TABLE `accompany_artists` (
   PRIMARY KEY (`id`),
   KEY `index_target_id_and_target_type` (`target_id`,`target_type`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+ALTER TABLE accompany_artists AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for album_names
 -- ----------------------------
@@ -45,7 +45,7 @@ CREATE TABLE `album_names` (
   PRIMARY KEY (`id`),
   KEY `index_album_names_on_album_id` (`album_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
+ALTER TABLE album_names AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for album_resources
 -- ----------------------------
@@ -60,7 +60,7 @@ CREATE TABLE `album_resources` (
   `index` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10028 DEFAULT CHARSET=utf8;
-
+ALTER TABLE album_resources AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for albums
 -- ----------------------------
@@ -106,7 +106,7 @@ CREATE TABLE `albums` (
   KEY `index_albums_on_status` (`status`),
   KEY `index_albums_on_name` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10030 DEFAULT CHARSET=utf8;
-
+ALTER TABLE albums AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for albums_tracks
 -- ----------------------------
@@ -131,7 +131,7 @@ CREATE TABLE `albums_videos` (
   PRIMARY KEY (`id`),
   KEY `index_album_videos_on_video_id_and_album_id` (`video_id`,`album_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10003 DEFAULT CHARSET=utf8mb4;
-
+ALTER TABLE albums_videos AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for ar_internal_metadata
 -- ----------------------------
@@ -159,7 +159,7 @@ CREATE TABLE `artist_albums` (
   KEY `association_id` (`album_id`),
   KEY `artist_id` (`artist_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10032 DEFAULT CHARSET=utf8mb4;
-
+ALTER TABLE artist_albums AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for artist_names
 -- ----------------------------
@@ -174,7 +174,7 @@ CREATE TABLE `artist_names` (
   PRIMARY KEY (`id`),
   KEY `index_artist_names_on_artist_id` (`artist_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
+ALTER TABLE artist_names AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for artist_resources
 -- ----------------------------
@@ -189,7 +189,7 @@ CREATE TABLE `artist_resources` (
   `deleted` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10009 DEFAULT CHARSET=utf8;
-
+ALTER TABLE artist_resources AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for artist_tracks
 -- ----------------------------
@@ -203,7 +203,7 @@ CREATE TABLE `artist_tracks` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10040 DEFAULT CHARSET=utf8mb4;
-
+ALTER TABLE artist_tracks AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for artist_videos
 -- ----------------------------
@@ -219,7 +219,7 @@ CREATE TABLE `artist_videos` (
   KEY `index_artist_videos_on_video_id_and_artist_id` (`video_id`,`artist_id`),
   KEY `by_artist_type` (`artist_type`(10))
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
-
+ALTER TABLE artist_videos AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for artists
 -- ----------------------------
@@ -246,7 +246,7 @@ CREATE TABLE `artists` (
   KEY `index_artists_on_name` (`name`),
   KEY `index_artists_on_deleted` (`deleted`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10014 DEFAULT CHARSET=utf8;
-
+ALTER TABLE artists AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for audits
 -- ----------------------------
@@ -286,7 +286,7 @@ CREATE TABLE `authorized_areas` (
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=353 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
-
+ALTER TABLE authorized_areas AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for authorized_businesses
 -- ----------------------------
@@ -301,7 +301,7 @@ CREATE TABLE `authorized_businesses` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10025 DEFAULT CHARSET=utf8;
-
+ALTER TABLE authorized_businesses AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for authorized_businesses_areas
 -- ----------------------------
@@ -322,7 +322,7 @@ CREATE TABLE `authorized_ranges` (
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
+ALTER TABLE authorized_ranges AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for banks
 -- ----------------------------
@@ -333,7 +333,7 @@ CREATE TABLE `banks` (
   `account_no` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
+ALTER TABLE banks AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for continents
 -- ----------------------------
@@ -360,7 +360,7 @@ CREATE TABLE `contract_resources` (
   PRIMARY KEY (`id`),
   KEY `index_contract_resources_on_target_id_and_target_type` (`target_id`,`target_type`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10011 DEFAULT CHARSET=utf8;
-
+ALTER TABLE contract_resources AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for copyrights
 -- ----------------------------
@@ -373,7 +373,7 @@ CREATE TABLE `copyrights` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10013 DEFAULT CHARSET=utf8mb4;
-
+ALTER TABLE copyrights AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for countries
 -- ----------------------------
@@ -409,7 +409,7 @@ CREATE TABLE `cp_authorizes` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10023 DEFAULT CHARSET=utf8;
-
+ALTER TABLE cp_authorizes AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for cp_contracts
 -- ----------------------------
@@ -434,7 +434,7 @@ CREATE TABLE `cp_contracts` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10010 DEFAULT CHARSET=utf8;
-
+ALTER TABLE cp_contracts AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for cp_settlements
 -- ----------------------------
@@ -456,7 +456,7 @@ CREATE TABLE `cp_settlements` (
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10042 DEFAULT CHARSET=utf8mb4;
-
+ALTER TABLE cp_settlements AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for currencies
 -- ----------------------------
@@ -517,7 +517,7 @@ CREATE TABLE `dsps` (
   `created_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10002 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
-
+ALTER TABLE dsps AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for event_logs
 -- ----------------------------
@@ -666,7 +666,7 @@ CREATE TABLE `providers` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10011 DEFAULT CHARSET=utf8mb4;
-
+ALTER TABLE providers AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for resources
 -- ----------------------------
@@ -683,7 +683,7 @@ CREATE TABLE `resources` (
   KEY `index_resources_on_deleted` (`deleted`),
   KEY `position` (`position`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10044 DEFAULT CHARSET=utf8;
-
+ALTER TABLE resources AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for revenue_files
 -- ----------------------------
@@ -698,7 +698,7 @@ CREATE TABLE `revenue_files` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10098 DEFAULT CHARSET=utf8;
-
+ALTER TABLE revenue_files AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for revenues
 -- ----------------------------
@@ -720,7 +720,7 @@ CREATE TABLE `revenues` (
   PRIMARY KEY (`id`),
   KEY `index_reports_on_dsp_id` (`dsp_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10103 DEFAULT CHARSET=utf8;
-
+ALTER TABLE revenues AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for roles
 -- ----------------------------
@@ -770,7 +770,7 @@ CREATE TABLE `tasks` (
   KEY `index_tasks_on_album_id_and_status` (`album_id`,`status`),
   KEY `batch` (`batch_no`(191))
 ) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4;
-
+ALTER TABLE tasks AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for track_composers
 -- ----------------------------
@@ -786,7 +786,7 @@ CREATE TABLE `track_composers` (
   PRIMARY KEY (`id`),
   KEY `index_track_composers_on_track_id` (`track_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10008 DEFAULT CHARSET=utf8;
-
+ALTER TABLE track_composers AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for track_resources
 -- ----------------------------
@@ -802,7 +802,7 @@ CREATE TABLE `track_resources` (
   PRIMARY KEY (`id`),
   KEY `index_track_resources_on_track_id` (`track_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10015 DEFAULT CHARSET=utf8;
-
+ALTER TABLE track_resources AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for tracks
 -- ----------------------------
@@ -840,7 +840,7 @@ CREATE TABLE `tracks` (
   KEY `authorize_id_2` (`authorize_id`,`deleted`),
   KEY `contract_id` (`contract_id`,`deleted`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10065 DEFAULT CHARSET=utf8;
-
+ALTER TABLE tracks AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for tracks_videos
 -- ----------------------------
@@ -853,7 +853,7 @@ CREATE TABLE `tracks_videos` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10003 DEFAULT CHARSET=utf8mb4;
-
+ALTER TABLE tracks_videos AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for transations
 -- ----------------------------
@@ -875,7 +875,7 @@ CREATE TABLE `transations` (
   KEY `provider_id` (`provider_id`),
   KEY `traget_index` (`target_id`,`target_type`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
-
+ALTER TABLE transations AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for users
 -- ----------------------------
@@ -896,7 +896,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   KEY `index_users_on_email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
-
+ALTER TABLE users AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for video_resources
 -- ----------------------------
@@ -913,7 +913,7 @@ CREATE TABLE `video_resources` (
   KEY `by_video_id` (`video_id`),
   KEY `by_resource_type` (`resource_type`(10))
 ) ENGINE=InnoDB AUTO_INCREMENT=10007 DEFAULT CHARSET=utf8mb4;
-
+ALTER TABLE video_resources AUTO_INCREMENT=100000;
 -- ----------------------------
 -- Table structure for videos
 -- ----------------------------
@@ -934,5 +934,5 @@ CREATE TABLE `videos` (
   PRIMARY KEY (`id`),
   KEY `by_name` (`name`(10))
 ) ENGINE=InnoDB AUTO_INCREMENT=10004 DEFAULT CHARSET=utf8mb4;
-
+ALTER TABLE videos AUTO_INCREMENT=100000;
 SET FOREIGN_KEY_CHECKS = 1;
