@@ -834,6 +834,7 @@ CREATE TABLE `tracks` (
   `updated_at` datetime NOT NULL,
   `not_through_reason` varchar(255) DEFAULT NULL COMMENT '未通过原因',
   `release_version` varchar(255) DEFAULT NULL COMMENT '版本',
+  `th_id` varchar(255) DEFAULT NULL COMMENT '太合ID',
   PRIMARY KEY (`id`),
   KEY `index_tracks_on_title` (`title`),
   KEY `position` (`position`),
@@ -896,7 +897,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   KEY `index_users_on_email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
- 
+
 -- ----------------------------
 -- Table structure for video_resources
 -- ----------------------------
