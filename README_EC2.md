@@ -43,6 +43,8 @@ touch /etc/docker/daemon.json
    "insecure-registries":["54.223.52.77:5000"]
 }
 
+sudo service docker restart
+
 ### 启动cpp 项目
 
 进入本项目所在的目录运行以下脚本，系统会自动拉取cpp项目的image
