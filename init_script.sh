@@ -17,7 +17,7 @@ function init_elasticsearch {
 
 function init_mysql {
   mysql -u${USERNAME} -p${PASSWORD} -h127.0.0.1 < ./scripts/schema.sql
-  echo 'import schema successful'
+  echo 'init schema successful'
 
   mysql -u${USERNAME} -p${PASSWORD} -h127.0.0.1 < ./scripts/seed.sql
   echo 'init seed successful'
@@ -27,6 +27,4 @@ check_mysql
 init_elasticsearch
 init_mysql
 
-echo "\033[32m========================================================= \033[0m"
-echo "\033[32m===================finished============================== \033[0m"
-echo "\033[32m========================================================= \033[0m"
+echo "finished"
