@@ -11,6 +11,15 @@
 
 ## 系统部署步骤
 
+### 安装docker
+
+```
+sudo yum install docker -y
+
+# start docker daemon
+sudo service docker start
+```
+
 ### 安装docker-compose
 Docker Compose 存放在Git Hub，不太稳定。
 你可以也通过执行下面的命令，高速安装Docker Compose。
