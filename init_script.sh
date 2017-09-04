@@ -16,11 +16,6 @@ function init_elasticsearch {
 }
 
 function init_mysql {
-  #statements
-  # init db schemas
-  mysqladmin -u${USERNAME} -p${PASSWORD} create cpp_tool
-  echo 'create database cpp_tool successful'
-
   mysql -u${USERNAME} -p${PASSWORD} -h127.0.0.1 < ./scripts/schema.sql
   echo 'import schema successful'
 
