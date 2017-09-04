@@ -1,0 +1,21 @@
+websocket:
+  path: ''
+  host: websocket.th-music.com
+  port: 80
+  q_source: test_offline
+task:
+  url: http://api:3000/api/internal/tasks
+track:
+  url: http://api:3000/api/internal/tracks
+bce:
+  ak: b89add7b3d9442d397ec0fff3bd17f6a
+  sk: 3320129b0b744da89b3cc9d2efda4248
+  endpoint: http://bj.bcebos.com
+  dmc_media: 'dmc-media-pro'
+  dmc_ro: 'dmc-ro-pro'
+  media_url: 'http://dmc-media-pro.bj.bcebos.com'  #开发环境存放音频文件
+  ro_url: 'http://dmc-ro-pro.bj.bcebos.com'     #开发环境存放图片和歌词文件
+sftp:
+  hostname: 52.80.19.48
+  port: 22220
+  username: chengwei

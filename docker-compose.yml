@@ -117,6 +117,17 @@ services:
       - web
     ports:
       - 6379:6379
+  offlinetool:
+    container_name: offlinetool
+    image: "54.223.52.77:5000/topdmc/cpp_offlinetool:1.0.0"
+    links:
+      - api
+    networks:
+      - web
+    volumes:
+      - /Users/datadir/logs/cpp_offlinetool:/app/logs
+      - /opt/cpp_deploy/config/cpp_offlinetool/config:/app/config
+    restart: always
 networks:
   web:
     driver: bridge
