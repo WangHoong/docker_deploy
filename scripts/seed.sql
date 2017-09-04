@@ -1348,6 +1348,33 @@ UNLOCK TABLES;
 
 ALTER TABLE users AUTO_INCREMENT=100000;
 
+# Dump of table currencies
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `currencies`;
+
+CREATE TABLE `currencies` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `en_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+
+LOCK TABLES `currencies` WRITE;
+/*!40000 ALTER TABLE `currencies` DISABLE KEYS */;
+
+INSERT INTO `currencies` (`id`, `name`, `en_name`)
+VALUES
+	(1,'人民币','RMB'),
+	(2,'美元','USD'),
+	(3,'欧元','EUR '),
+	(4,'英镑','GBP'),
+	(5,'港币','HKD'),
+	(6,'日元','JPY');
+
+/*!40000 ALTER TABLE `currencies` ENABLE KEYS */;
+UNLOCK TABLES;
+
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
