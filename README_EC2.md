@@ -4,6 +4,7 @@
 - EC2
 - CPU >=4核
 - 内存 >=8G
+- 硬盘 >=50G
 
 ## 系统配置修改
 
@@ -11,39 +12,15 @@
 
 ## 系统部署步骤
 
-### 安装docker
+### 安装离线系统软件
 
 ```
-sudo yum install docker -y
-
-# start docker daemon
-sudo service docker start
-```
-
-### 安装docker-compose
-Docker Compose 存放在Git Hub，不太稳定。
-你可以也通过执行下面的命令，高速安装Docker Compose。
-
-```bash
-sudo usermod -a -G docker ec2-user
-sudo curl -L https://get.daocloud.io/docker/compose/releases/download/1.11.2/docker-compose-`uname -s`-`uname -m` | sudo tee /usr/local/bin/docker-compose > /dev/null
-sudo chmod +x /usr/local/bin/docker-compose
+./install/ec2.sh
 
 ```
-你可以通过修改URL中的版本，可以自定义您的需要的版本。
 
-### 设置docker 配置
+### 自动安装软件
 
-```bash
-touch /etc/docker/daemon.json
-
-配置内容
-{
-   "registry-mirrors":["http://3fcf853c.m.daocloud.io"],
-   "insecure-registries":["54.223.52.77:5000"]
-}
-
-sudo service docker restart
 
 ### 启动cpp 项目
 
