@@ -30,7 +30,6 @@ cd cpp_deploy
 ### 安装离线系统所需软件
 
 ```
-sudo chmod +x ./install/ec2.sh
 ./install/ec2.sh
 
 ```
