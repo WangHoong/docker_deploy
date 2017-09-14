@@ -12,15 +12,27 @@
 
 ## 系统部署步骤
 
-### 安装离线系统软件
+## 下载系统安装文件
+
+```
+# 安装git
+sudo yum install git
+
+# clone安装文件到本地
+cd /opt
+git clone https://github.com/topdmc/cpp_deploy.git
+
+# 进入/opt/cpp_deploy
+cd cpp_deploy
+
+```
+
+### 安装离线系统所需软件
 
 ```
 ./install/ec2.sh
 
 ```
-
-### 自动安装软件
-
 
 ### 启动cpp 项目
 
